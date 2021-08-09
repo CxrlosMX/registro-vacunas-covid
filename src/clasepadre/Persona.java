@@ -5,6 +5,9 @@
  */
 package clasepadre;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import metodos.Metodos;
 
@@ -17,7 +20,7 @@ import metodos.Metodos;
  * @Date: 6/08/2021
  *
  */
-public class Persona {
+public  class Persona {
     /*
      Aplicacón basica que simula el registro nacional de la campaña de vacunación contra el COVID
      */
@@ -36,7 +39,7 @@ public class Persona {
     private char sexo;
 
     //Constructor
-    public Persona(String nombre, String apellido, String estadoCivil, String curp, int edad, String lugarProcedencia, boolean vacunado, char sexo) {
+    public Persona(String nombre, String apellido, String estadoCivil, int edad, String lugarProcedencia, boolean vacunado, char sexo) {
         this.nombre = nombre;
         this.apellido = apellido;
         //Comprobamos el estado civil
@@ -48,7 +51,7 @@ public class Persona {
         this.lugarProcedencia = lugarProcedencia;
         this.vacunado = vacunado;
         //Verificamos que el sexo sea correcto
-        this.sexo = sexo;
+        this.verificarSexo(sexo);
     }
 
     //Métodos de comprobación
@@ -89,7 +92,7 @@ public class Persona {
     }
 
     //Método para verificar la edad
-    public void verificarEdad(int e) {
+    private void verificarEdad(int e) {
         if (e > 0) {
             this.edad = e;
         } else {
@@ -108,7 +111,7 @@ public class Persona {
     }
 
     //Método para verificar el Sexo
-    public void verificarSexo(char sex) {
+    private void verificarSexo(char sex) {
         boolean encontrado = false;
         for (int i = 0; i < Metodos.sexo.length && !encontrado; i++) {
             if (Metodos.sexo[i] == sex) {
@@ -120,9 +123,20 @@ public class Persona {
             this.sexo = 'U';
         }
     }
-    
-    //Métodos get y sets
 
+    //Método Vacunar
+    public void vacunar(){
+     if (!isVacunado()) {
+            DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+            Date date = new Date();
+            JOptionPane.showMessageDialog(null, "Vacunado contra el COVID-19" + "\nHora: " + dateFormat.format(date), "Vacunado", 1);
+            setVacunado(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Usted ya recibio la dosis", "Usuario ya vacunado", 2);
+        }
+    }
+
+    //Métodos get y sets
     public String getNombre() {
         return nombre;
     }
@@ -186,6 +200,12 @@ public class Persona {
     public void setSexo(char sexo) {
         this.sexo = sexo;
     }
-    
+
     //Método que imprime los datos
+
+    @Override
+    public String toString() {
+        return   "Nombre: " + nombre + "\nApellido: " + apellido + "\nEstado Civil: " + estadoCivil + "\nCurp: " + curp + "\nEdad: " + edad +" años"+ "\nLugar de Procedencia: " + lugarProcedencia + "\nVacunado: " + ((vacunado)?"Si": "No") + "\nSexo: " + sexo ;
+    }
+    
 }
