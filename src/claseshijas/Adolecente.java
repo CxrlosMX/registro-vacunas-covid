@@ -25,7 +25,7 @@ public class Adolecente extends Persona {
     private boolean isEstudiante;
 
     public Adolecente(boolean isEstudiante, String nombre, String apellido, String estadoCivil, int edad, String lugarProcedencia, boolean vacunado, char sexo) {
-        super(nombre, apellido, estadoCivil, edad, lugarProcedencia, vacunado, sexo);
+        super(nombre, apellido, estadoCivil, edad, lugarProcedencia, sexo);
         this.isEstudiante = isEstudiante;
     }
 

@@ -22,7 +22,7 @@ public class Adulto extends Persona {
     private double sueldo;
 
     public Adulto(String trabajo, double sueldo, String nombre, String apellido, String estadoCivil, int edad, String lugarProcedencia, boolean vacunado, char sexo) {
-        super(nombre, apellido, estadoCivil, edad, lugarProcedencia, vacunado, sexo);
+        super(nombre, apellido, estadoCivil, edad, lugarProcedencia, sexo);
         this.trabajo = trabajo;
         this.sueldo = sueldo;
     }

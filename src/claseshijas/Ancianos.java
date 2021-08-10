@@ -23,7 +23,7 @@ public class Ancianos extends Persona {
     private String p;
 
     public Ancianos(boolean somePadecimiento, String nombre, String apellido, String estadoCivil, int edad, String lugarProcedencia, boolean vacunado, char sexo) {
-        super(nombre, apellido, estadoCivil, edad, lugarProcedencia, vacunado, sexo);
+        super(nombre, apellido, estadoCivil, edad, lugarProcedencia, sexo);
         this.somePadecimiento = somePadecimiento;
         p = givePadecimiento();
     }

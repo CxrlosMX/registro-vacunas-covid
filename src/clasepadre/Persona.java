@@ -39,7 +39,7 @@ public  class Persona {
     private char sexo;
 
     //Constructor
-    public Persona(String nombre, String apellido, String estadoCivil, int edad, String lugarProcedencia, boolean vacunado, char sexo) {
+    public Persona(String nombre, String apellido, String estadoCivil, int edad, String lugarProcedencia, char sexo) {
         this.nombre = nombre;
         this.apellido = apellido;
         //Comprobamos el estado civil
@@ -49,7 +49,7 @@ public  class Persona {
         //Necesitamos verificar que la edad sea mayor a 0
         this.verificarEdad(edad);
         this.lugarProcedencia = lugarProcedencia;
-        this.vacunado = vacunado;
+        this.vacunado = false;
         //Verificamos que el sexo sea correcto
         this.verificarSexo(sexo);
     }

@@ -27,10 +27,37 @@ public class RegistroPersonas {
         lista = new ArrayList<Persona>();
         contador = -1;
     }
+    /*
+    Método para rellenar los valores
+    -Segun la edad nos devolvera el tipo de Personas 
+    */
+    /*public Persona rellenarDatos(){
     
+    
+    
+    }*/
+
+    /*
+     Método para inciar sesión
+     *-Este método nos devuelve la personas  que inicia sesión
+     */
+    public Persona iniciarSesion(String curp) {
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getCurp().equals(curp)) {
+                return lista.get(i);
+
+            }
+        }
+        return null;
+    }
+    
+    /*
+    
+    */
+
     //Método para verificar si nuestra lista esta vacia
-    public boolean estaVacia(){
-    return (this.contador==-1); //La lista esta vacia si el contador es igual a -1
+    public boolean estaVacia() {
+        return (this.contador == -1); //La lista esta vacia si el contador es igual a -1
     }
 
 }
