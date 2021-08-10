@@ -8,6 +8,8 @@ package control;
 import clasepadre.Persona;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
+import metodos.Metodos;
 
 /**
  *
@@ -28,14 +30,31 @@ public class RegistroPersonas {
         contador = -1;
     }
     /*
-    Método para rellenar los valores
-    -Segun la edad nos devolvera el tipo de Personas 
-    */
-    /*public Persona rellenarDatos(){
-    
-    
-    
-    }*/
+     Método para rellenar los valores
+     -Segun la edad nos devolvera el tipo de Personas 
+     */
+
+    public Persona dameObjetoPersona() {
+        Persona p = null;
+        String nombre = JOptionPane.showInputDialog(null, "Introduce tu nombre", "Nombre", 1);
+        String apellido = JOptionPane.showInputDialog(null, "Introduce tu apellido", "Apellido", 1);
+        int edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce tu edad", "Edad", 1));
+        String lugarProcedencia = JOptionPane.showInputDialog(null, "Introduce tu Lugar de Procedencia", "Localidad/Ciudad", 1);
+        String estadoCivil = JOptionPane.showInputDialog(null, "Introduce tu estado Civil", "Estado Civil", 1);
+        /*
+         Opción para definir el sexo con JOption
+         */
+        Object arreglo[] = {'H', 'M'};
+        int x = JOptionPane.showOptionDialog(null, "            Elige el Sexo", "Sexo", JOptionPane.DEFAULT_OPTION, 1, null, arreglo, null);
+        char sexo;
+        if (x == 0) {
+            sexo = 'H';
+        } else {
+            sexo = 'M';
+        }
+
+        return p;
+    }
 
     /*
      Método para inciar sesión
@@ -50,11 +69,10 @@ public class RegistroPersonas {
         }
         return null;
     }
-    
+
     /*
     
-    */
-
+     */
     //Método para verificar si nuestra lista esta vacia
     public boolean estaVacia() {
         return (this.contador == -1); //La lista esta vacia si el contador es igual a -1
