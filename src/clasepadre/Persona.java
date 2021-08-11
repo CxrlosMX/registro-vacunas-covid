@@ -93,14 +93,14 @@ public  class Persona {
 
     //Método para verificar la edad
     private void verificarEdad(int e) {
-        if (e > 0) {
+        if (e >=10) {
             this.edad = e;
         } else {
             JOptionPane.showMessageDialog(null, "Introduce una edad correcta", "Solo valores mayores a 0", 2);
             boolean itsOK = false;
             do {
                 int edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce tu edad", "Introduciendo edad", 1));
-                if (edad >= 8) {
+                if (edad >= 10) {
                     this.edad = edad;
                     itsOK = true;
                 } else {

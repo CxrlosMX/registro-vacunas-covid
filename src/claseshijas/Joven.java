@@ -20,11 +20,11 @@ import javax.swing.JOptionPane;
  * @Date: 8/08/2021
  *
  */
-public class Adolecente extends Persona {
+public class Joven extends Persona {
 
     private boolean isEstudiante;
 
-    public Adolecente(boolean isEstudiante, String nombre, String apellido, String estadoCivil, int edad, String lugarProcedencia, boolean vacunado, char sexo) {
+    public Joven(boolean isEstudiante, String nombre, String apellido, String estadoCivil, int edad, String lugarProcedencia, boolean vacunado, char sexo) {
         super(nombre, apellido, estadoCivil, edad, lugarProcedencia, sexo);
         this.isEstudiante = isEstudiante;
     }
