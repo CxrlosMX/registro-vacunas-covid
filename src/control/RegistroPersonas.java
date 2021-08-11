@@ -9,6 +9,7 @@ import clasepadre.Persona;
 import claseshijas.Adulto;
 import claseshijas.Ancianos;
 import claseshijas.Joven;
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -60,7 +61,7 @@ public class RegistroPersonas {
         if (edad >= 10 && edad <= 20) {
             boolean isEstudiante;
             Object a[] = {"Si", "No"};
-            x = JOptionPane.showOptionDialog(null, "            Elige el Sexo", "Sexo", JOptionPane.DEFAULT_OPTION, 1, null, a, null);
+            x = JOptionPane.showOptionDialog(null, "            Es Estudiante", "Verificar Estudios", JOptionPane.DEFAULT_OPTION, 1, null, a, null);
             if (x == 0) {
                 isEstudiante = true;
             } else {
@@ -74,7 +75,7 @@ public class RegistroPersonas {
         } else { //Anciano
             boolean somePadecimiento;
             Object a[] = {"Si", "No"};
-            x = JOptionPane.showOptionDialog(null, "            Elige el Sexo", "Sexo", JOptionPane.DEFAULT_OPTION, 1, null, a, null);
+            x = JOptionPane.showOptionDialog(null, "           Algun Padecimiento", "Verificar Padecimiento", JOptionPane.DEFAULT_OPTION, 1, null, a, null);
             if (x == 0) {
                 somePadecimiento = true;
             } else {
@@ -150,7 +151,7 @@ public class RegistroPersonas {
     }
 
     //Método para mostrar solo a las personas vacunadas
-    public void mostrasVacunadas() {
+    public void mostrasVacunados() {
         if (this.noVacia()) {
             String cadena = "";
             for (Persona i : lista) {
@@ -192,6 +193,19 @@ public class RegistroPersonas {
         }
         if (!encontrado) {
             JOptionPane.showMessageDialog(null, "Persona no encontrada", "Error de busqueda", 2);
+        }
+    }
+
+    /*
+     Método para vacunar
+     */
+    public void vacunar(String curp) {
+        boolean encontrado = false;
+        for (int i = 0; i < lista.size() && !encontrado; i++) {
+            if (lista.get(i).getCurp().equals(curp)) {
+                encontrado = true;
+                lista.get(i).vacunar();
+            }
         }
     }
 

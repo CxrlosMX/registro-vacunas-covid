@@ -75,7 +75,7 @@ public  class Persona {
         String cadena = "";
         char l;
         for (int i = 0; i < 5; i++) {
-            n = Metodos.generarNumero(1, 3);
+            n = Metodos.generarNumero(1, 2);
 
             if (n == 1) { //Generaremos una letra
                 n = Metodos.generarNumero(65, 91);

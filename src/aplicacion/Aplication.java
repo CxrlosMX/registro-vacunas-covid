@@ -22,13 +22,89 @@ public class Aplication {
 
     public static void main(String[] args) {
         //Creación aplicación
-        int op = 0;
+        int op = 0, op2 = 0, x = 0;
+        String curp;
         Persona p;
         RegistroPersonas control = new RegistroPersonas();
-        JOptionPane.showMessageDialog(null,"BIENVENIDO SEGOB","Gobierno Federal", op);
+        JOptionPane.showMessageDialog(null, "BIENVENIDO SEGOB", "Gobierno Federal", -1);
         do {
-            //op=Integer.parseInt(JOptionPane.showInputDialog(null, "", null, op))
+            try {
 
+                op = Integer.parseInt(JOptionPane.showInputDialog(null, "REGISTRO CAMPAÑA VACUNACIÓN\n"
+                        + "1.-Iniciar Sesión\n"
+                        + "2.-Registrarse\n"
+                        + "3.-Cerrar Programa", "Camapaña Vacunación", 3));
+                switch (op) {
+                    case 1: {
+                        if (control.noVacia()) {
+                            curp = JOptionPane.showInputDialog(null, "Introduce tu Curp para iniciar sesión", "Introduce CURP", 1);
+                            p = control.iniciarSesion(curp);
+                            if (p == null) {
+
+                                do {
+                                    x = JOptionPane.showOptionDialog(null, "            Desea seguir?", "Seguir Introduciendo CURP", JOptionPane.YES_NO_OPTION, 1, null, null, null);
+                                    if (x == 0) {
+                                        curp = JOptionPane.showInputDialog(null, "Introduce tu Curp para iniciar sesión", "Introduce CURP", 1);
+                                        p = control.iniciarSesion(curp);
+                                    } else {
+                                        break;
+                                    }
+                                } while (p == null || x == 0);
+
+                            }
+                            if (p != null) { //Cuando el valor de P sea diferente a nulo, osea si tiene valores
+                                JOptionPane.showMessageDialog(null, "Bienvenido " + p.getNombre(), "Bienvenido", 1);
+                                do {
+                                    try {
+                                        op2 = Integer.parseInt(JOptionPane.showInputDialog(null, "         GOBF MIS DATOS\n1.-Vacunarse\n"
+                                                + "2-", "Bienvenido", 3));
+                                        switch (op2) {
+                                            case 1: {
+                                                control.vacunar(p.getCurp());
+                                                break;
+                                            }
+                                            case 2: {
+
+                                                break;
+                                            }
+                                            case 3: {
+
+                                                break;
+                                            }
+                                            default: {
+                                                JOptionPane.showMessageDialog(null, "Introduce valores correctos", "Valores Incorrectos", 2);
+                                                break;
+                                            }
+                                        }
+                                    } catch (NumberFormatException e) {
+                                        JOptionPane.showMessageDialog(null, "Error " + e.getMessage(), "Error", 0);
+                                    }
+                                } while (op2 != 3);
+
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El registro se encuentra parcialmente vacio", "Registro Vacio", 2);
+                        }
+
+                        break;
+                    }
+                    case 2: {
+                        p=control.dameObjetoPersona();
+                        control.registrarPersona(p);
+                        break;
+                    }
+                    case 3: {
+                        JOptionPane.showMessageDialog(null, "Cerrando Programa", "Saliendo", 1);
+                        break;
+                    }
+                    default: {
+                        JOptionPane.showMessageDialog(null, "Introduce valores correctos", "Valores Incorrectos", 2);
+                        break;
+                    }
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Error " + e.getMessage(), "Error", 0);
+            }
         } while (op != 3);
     }
 
