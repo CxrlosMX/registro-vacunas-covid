@@ -40,16 +40,19 @@ public class Aplication {
                             curp = JOptionPane.showInputDialog(null, "Introduce tu Curp para iniciar sesión", "Introduce CURP", 1);
                             p = control.iniciarSesion(curp);
                             if (p == null) {
-
+                                JOptionPane.showMessageDialog(null, "CURP no encontrada", "Error", 0);
                                 do {
                                     x = JOptionPane.showOptionDialog(null, "            Desea seguir?", "Seguir Introduciendo CURP", JOptionPane.YES_NO_OPTION, 1, null, null, null);
                                     if (x == 0) {
                                         curp = JOptionPane.showInputDialog(null, "Introduce tu Curp para iniciar sesión", "Introduce CURP", 1);
                                         p = control.iniciarSesion(curp);
+                                        if (p == null) {
+                                            JOptionPane.showMessageDialog(null, "CURP no encontrada", "Error", 0);
+                                        }
                                     } else {
                                         break;
                                     }
-                                } while (p == null || x == 0);
+                                } while (p == null);
 
                             }
                             if (p != null) { //Cuando el valor de P sea diferente a nulo, osea si tiene valores
@@ -89,7 +92,7 @@ public class Aplication {
                         break;
                     }
                     case 2: {
-                        p=control.dameObjetoPersona();
+                        p = control.dameObjetoPersona();
                         control.registrarPersona(p);
                         break;
                     }
