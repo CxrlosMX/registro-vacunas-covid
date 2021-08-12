@@ -66,6 +66,7 @@ public class Aplication {
                                                 control.vacunar(p.getCurp());
                                                 break;
                                             }
+                                            //Caso 2
                                             case 2: {
 
                                                 break;
