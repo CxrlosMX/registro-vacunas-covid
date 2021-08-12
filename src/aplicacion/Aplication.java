@@ -7,6 +7,7 @@ package aplicacion;
 
 import clasepadre.Persona;
 import control.RegistroPersonas;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,11 +23,14 @@ public class Aplication {
 
     public static void main(String[] args) {
         //Creación aplicación
+        //Variables de uso-----
         int op = 0, op2 = 0, x = 0;
         String curp;
         Persona p;
+        //-----
         RegistroPersonas control = new RegistroPersonas();
-        JOptionPane.showMessageDialog(null, "BIENVENIDO SEGOB", "Gobierno Federal", -1);
+        //Mensaje bienvenida
+        JOptionPane.showMessageDialog(null, "SECRETARIA DE SALUD", "Gobierno Federal", -1,new ImageIcon("recursos/logo.jpg"));
         do {
             try {
 
