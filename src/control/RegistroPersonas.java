@@ -35,7 +35,7 @@ public class RegistroPersonas {
     }
     /*
      Método para rellenar los valores
-     -Segun la edad nos devolvera el tipo de Personas 
+     -Segun la edad nos devolvera el tipo de Personas -Usado
      */
 
     public Persona dameObjetoPersona() {
@@ -88,7 +88,7 @@ public class RegistroPersonas {
 
     /*
      Método para inciar sesión
-     *-Este método nos devuelve la personas  que inicia sesión
+     *-Este método nos devuelve la personas  que inicia sesión-Usado
      */
     public Persona iniciarSesion(String curp) {
         for (int i = 0; i < lista.size(); i++) {
@@ -101,7 +101,7 @@ public class RegistroPersonas {
     }
 
     /*
-     Método para registrar una persona
+     Método para registrar una persona -Usado
      */
     public void registrarPersona(Persona p) {
         lista.add(p);
@@ -110,9 +110,9 @@ public class RegistroPersonas {
     }
 
     /*
-     Muestra el registro completo sin excepciones
+     Muestra el registro completo sin excepciones --Usada
      */
-    public void mostrarDatosGenerales() {
+    public void mostrarDatosGenerales() { 
         if (this.noVacia()) {
             String cadena = "";
             for (Persona i : lista) {
@@ -182,11 +182,11 @@ public class RegistroPersonas {
         }
     }
 
-    //Método para buscar una persona
-    public void buscarPersona(String curp) {
+    //Método para buscar una persona-Usado
+    public void buscarPersona(String nombre) {
         boolean encontrado = false;
         for (int i = 0; i < lista.size() && !encontrado; i++) {
-            if (lista.get(i).getCurp().equalsIgnoreCase(curp)) {
+            if (lista.get(i).getNombre().equalsIgnoreCase(nombre)) {
                 encontrado = true;
                 JOptionPane.showMessageDialog(null, lista.get(i), "Persona encontrada", 1);
             }
@@ -197,7 +197,7 @@ public class RegistroPersonas {
     }
 
     /*
-     Método para vacunar
+     Método para vacunar-Usado
      */
     public void vacunar(String curp) {
         boolean encontrado = false;
@@ -209,7 +209,7 @@ public class RegistroPersonas {
         }
     }
 
-    //Método para verificar si nuestra lista esta vacia
+    //Método para verificar si nuestra lista esta vacia-Usado
     public boolean noVacia() {
         return (this.contador != -1); //La lista esta vacia si el contador es igual a -1
     }

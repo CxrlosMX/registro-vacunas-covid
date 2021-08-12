@@ -63,7 +63,7 @@ public class Joven extends Persona {
     //Método para mostrar los datos 
     @Override
     public String toString() {
-        return super.toString() + "\nEstudiante: " + ((isEstudiante) ? "Si" : "No") + ((isEstudiante) ? "Grado: " + this.dameGrado() : "");
+        return super.toString() + "\nEstudiante: " + ((isEstudiante) ? "Si" : "No") + ((isEstudiante) ? "\nGrado: " + this.dameGrado() : "");
     }
 
 }
