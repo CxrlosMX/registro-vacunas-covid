@@ -74,15 +74,15 @@ public  class Persona {
         int n = 0;
         String cadena = "";
         char l;
-        for (int i = 0; i < 5; i++) {
-            n = Metodos.generarNumero(1, 3);
+        for (int i = 0; i < 3; i++) {
+            n = Metodos.generarNumero(1, 2);
 
             if (n == 1) { //Generaremos una letra
-                n = Metodos.generarNumero(65, 91);
+                n = Metodos.generarNumero(65, 90);
                 l = (char) n;
                 cadena += l;
-            } else { //Generamos una letra
-                n = Metodos.generarNumero(48, 58);
+            } else { //Generamos un numero
+                n = Metodos.generarNumero(48, 57);
                 l = (char) n;
                 cadena += l;
             }

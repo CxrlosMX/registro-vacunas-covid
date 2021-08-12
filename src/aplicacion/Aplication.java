@@ -30,7 +30,9 @@ public class Aplication {
         //-----
         RegistroPersonas control = new RegistroPersonas();
         //Mensaje bienvenida
-        JOptionPane.showMessageDialog(null, "SECRETARIA DE SALUD", "Gobierno Federal", -1,new ImageIcon("recursos/logo.jpg"));
+        JOptionPane.showMessageDialog(null, "SECRETARIA DE SALUD 21", "Gobierno Federal", -1, new ImageIcon("recursos/logo.jpg"));
+
+        //Ménu principal
         do {
             try {
 
@@ -41,14 +43,14 @@ public class Aplication {
                 switch (op) {
                     case 1: {
                         if (control.noVacia()) {
-                            curp = JOptionPane.showInputDialog(null, "Introduce tu Curp para iniciar sesión", "Introduce CURP", 1);
+                            curp = JOptionPane.showInputDialog(null, "Introduce tu CURP para iniciar sesión", "Introduce CURP", 1);
                             p = control.iniciarSesion(curp);
                             if (p == null) {
                                 JOptionPane.showMessageDialog(null, "CURP no encontrada", "Error", 0);
                                 do {
-                                    x = JOptionPane.showOptionDialog(null, "            Desea seguir?", "Seguir Introduciendo CURP", JOptionPane.YES_NO_OPTION, 1, null, null, null);
+                                    x = JOptionPane.showOptionDialog(null, "            Desea seguir intentando iniciar sesión?", "Seguir Introduciendo CURP", JOptionPane.YES_NO_OPTION, 1, null, null, null);
                                     if (x == 0) {
-                                        curp = JOptionPane.showInputDialog(null, "Introduce tu Curp para iniciar sesión", "Introduce CURP", 1);
+                                        curp = JOptionPane.showInputDialog(null, "Introduce tu CURP para iniciar sesión", "Introduce CURP", 1);
                                         p = control.iniciarSesion(curp);
                                         if (p == null) {
                                             JOptionPane.showMessageDialog(null, "CURP no encontrada", "Error", 0);
@@ -63,16 +65,16 @@ public class Aplication {
                                 JOptionPane.showMessageDialog(null, "Bienvenido " + p.getNombre(), "Bienvenido", 1);
                                 do {
                                     try {
-                                        op2 = Integer.parseInt(JOptionPane.showInputDialog(null, "         GOBF MIS DATOS\n1.-Vacunarse\n"
+                                        op2 = Integer.parseInt(JOptionPane.showInputDialog(null, "GOBF MIS DATOS\n1.-Vacunarse\n"
                                                 + "2-", "Bienvenido", 3));
                                         switch (op2) {
-                                            case 1: {
+                                            case 1: {//Vacunarse
                                                 control.vacunar(p.getCurp());
                                                 break;
                                             }
-                                            //Caso 2
+                                            //Caso Datos generales
                                             case 2: {
-
+                                                control.mostrarDatosGenerales();
                                                 break;
                                             }
                                             case 3: {
