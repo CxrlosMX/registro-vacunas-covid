@@ -24,7 +24,7 @@ public class Aplication {
     public static void main(String[] args) {
         //Creación aplicación
         //Variables de uso-----
-        int op = 0, op2 = 0, x = 0;
+        int op = 0, op2 = 0, op3 = 0, x = 0, n = 0;
         String curp;
         Persona p;
         //-----
@@ -40,7 +40,8 @@ public class Aplication {
                         + "1.-Iniciar Sesión\n"
                         + "2.-Registrarse\n"
                         + "3.-Buscar mi Información\n"
-                        + "4.-Cerrar Programa", "Camapaña Vacunación", 3));
+                        + "4.-Registros\n"
+                        + "5.-Cerrar Programa", "Camapaña Vacunación", 3));
                 switch (op) {
                     case 1: {
                         if (control.noVacia()) {
@@ -96,7 +97,7 @@ public class Aplication {
                                     } catch (NumberFormatException e) {
                                         JOptionPane.showMessageDialog(null, "Error " + e.getMessage(), "Error", 0);
                                     }
-                                } while (op2 != 3);
+                                } while (op2 != 4);
 
                             }
                         } else {
@@ -120,6 +121,44 @@ public class Aplication {
                         break;
                     }
                     case 4: {
+                        if (control.noVacia()) {
+                            do {
+                                try {
+                                    op3 = Integer.parseInt(JOptionPane.showInputDialog(null, "REGISTROS"
+                                            + "\n1.-Seleccionar Registro\n"
+                                            + "2.-Mostrar Registro Vacunados\n"
+                                            + "3.-Mostrar Registro No Vacunados\n"
+                                            + "4.-Salir al menu principal\n¿Elija una opción?", "MENU REGISTRO", 3));
+                                    switch (op3) {
+                                        case 1: {
+                                            break;
+                                        }
+                                        case 2: {
+                                            break;
+                                        }
+                                        case 3: {
+                                            break;
+                                        }
+                                        case 4: {
+                                            break;
+                                        }
+                                        default: {
+                                            JOptionPane.showMessageDialog(null, "Introduce valores correctos", "Valores Incorrectos", 2);
+                                            break;
+                                        }
+
+                                    }
+                                } catch (NumberFormatException e) {
+                                    JOptionPane.showMessageDialog(null, "Error " + e.getMessage(), "Error", 0);
+                                }
+
+                            } while (op3 != 4);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El registro se encuentra parcialmente vacio", "Registro Vacio", 2);
+                        }
+                        break;
+                    }
+                    case 5: {
                         JOptionPane.showMessageDialog(null, "Cerrando Programa", "Saliendo", 1);
                         break;
                     }
@@ -131,7 +170,7 @@ public class Aplication {
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Error " + e.getMessage(), "Error", 0);
             }
-        } while (op != 4);
+        } while (op != 5);
     }
 
 }
