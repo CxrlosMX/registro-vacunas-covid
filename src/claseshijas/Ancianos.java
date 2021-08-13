@@ -51,7 +51,7 @@ public class Ancianos extends Persona {
     //Datos
     @Override
     public String toString() {
-        return super.toString() + "\nPadecimiento: " + ((somePadecimiento) ? "Si" : "No") + ((this.somePadecimiento) ? "Tipo de Padecimiento: " + p : "");
+        return super.toString() + "\nPadecimiento: " + ((somePadecimiento) ? "Si" : "No") + ((this.somePadecimiento) ? "Tipo de Padecimiento: " + "\n"+p : "");
     }
 
 }

@@ -131,15 +131,30 @@ public class Aplication {
                                             + "4.-Salir al menu principal\n¿Elija una opción?", "MENU REGISTRO", 3));
                                     switch (op3) {
                                         case 1: {
+                                            Object[] a = {"Jovenes", "Adultos", "Ancianos"};
+                                            x = JOptionPane.showOptionDialog(null, "Mostrar:", "Elija una opción", JOptionPane.DEFAULT_OPTION, 1, null, a, null);
+                                            if(x==0){
+                                            control.mostrarDatosPersonales(1);
+                                            }
+                                            else if(x==1){
+                                           control.mostrarDatosPersonales(2);
+                                            }
+                                            else {
+                                            control.mostrarDatosPersonales(3);
+                                            }
+                                            
                                             break;
                                         }
                                         case 2: {
+                                            control.mostrasVacunados();
                                             break;
                                         }
                                         case 3: {
+                                            control.mostrarNoVacunados();
                                             break;
                                         }
                                         case 4: {
+                                            JOptionPane.showMessageDialog(null, "Saliendo al menu principal", "Saliendo", 1);
                                             break;
                                         }
                                         default: {

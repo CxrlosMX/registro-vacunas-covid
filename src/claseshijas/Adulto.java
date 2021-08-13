@@ -45,7 +45,7 @@ public class Adulto extends Persona {
 
     @Override
     public String toString() {
-        return super.toString() + "\nTrabajo: " + trabajo + "\nSueldo: " + sueldo;
+        return super.toString() + "\nTrabajo: " + trabajo + "\nSueldo: " + sueldo+"$";
     }
 
     

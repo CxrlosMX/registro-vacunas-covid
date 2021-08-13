@@ -112,11 +112,11 @@ public class RegistroPersonas {
     /*
      Muestra el registro completo sin excepciones --Usada
      */
-    public void mostrarDatosGenerales() { 
+    public void mostrarDatosGenerales() {
         if (this.noVacia()) {
             String cadena = "";
             for (Persona i : lista) {
-                cadena = cadena + "\n" + i;
+                cadena = cadena + "\n" + i+"\n";
             }
             JOptionPane.showMessageDialog(null, cadena, "Registro Federal", 1);
         } else {
@@ -128,42 +128,36 @@ public class RegistroPersonas {
      */
 
     public void mostrarDatosPersonales(int j) {
-        if (this.noVacia()) {
-            String cadena = "";
-            for (Persona i : lista) {
-                if (j == 1) { //Joven
-                    if (i instanceof Joven) {
-                        cadena = cadena + "\n" + i;
-                    }
+
+        String cadena = "";
+        for (Persona i : lista) {
+            if (j == 1) { //Joven=1
+                if (i instanceof Joven) {
+                    cadena = cadena + "\n" + i+"\n";
                 }
-                if (j == 2) {//Adulto
-                    if (i instanceof Adulto) {
-                        cadena = cadena + "\n" + i;
-                    }
-                } else { //Anciano
-                    cadena = cadena + "\n" + i;
+            } else if (j == 2) {//Adulto=2
+                if (i instanceof Adulto) {
+                    cadena = cadena + "\n" + i+"\n";
                 }
+            } else if(i instanceof Ancianos){ //Anciano=3
+                cadena = cadena + "\n" + i+"\n";
             }
-            JOptionPane.showMessageDialog(null, cadena, "Registro " + ((j == 1) ? "Jovenes" : (j == 2) ? "Adultos" : "Ancianos"), 1);
-        } else {
-            JOptionPane.showMessageDialog(null, "El registro se encuentra vacio", "Registro Vacio", 0);
         }
+        JOptionPane.showMessageDialog(null, "Registro " + ((j == 1) ? "Jovenes:" : (j == 2) ? "Adultos:" : "Ancianos;")+"\n"+((cadena.length()<=1)?"Lista Vacia":cadena), "Registro " + ((j == 1) ? "Jovenes" : (j == 2) ? "Adultos" : "Ancianos"), 1);
+
     }
 
     //Método para mostrar solo a las personas vacunadas
     public void mostrasVacunados() {
-        if (this.noVacia()) {
-            String cadena = "";
-            for (Persona i : lista) {
-                if (i.isVacunado()) {
-                    cadena = cadena + "\n" + i;
-                }
-            }
-            JOptionPane.showMessageDialog(null, "Personas Vacunadas\n" + cadena, "Lista Personas Vacunadas", 1);
 
-        } else {
-            JOptionPane.showMessageDialog(null, "El registro esta vacio", "Registro Vacio", 2);
+        String cadena = "";
+        for (Persona i : lista) {
+            if (i.isVacunado()) {
+                cadena = cadena + "\n" + i+"\n";
+            }
         }
+        JOptionPane.showMessageDialog(null, "Personas Vacunadas\n" + ((cadena.length()<=1)?"Lista Vacia":cadena), "Lista Personas Vacunadas", 1);
+
     }
 
     //Método para mostrar las personas que no se han vacunado
@@ -172,7 +166,7 @@ public class RegistroPersonas {
             String cadena = "";
             for (Persona i : lista) {
                 if (!i.isVacunado()) {
-                    cadena = cadena + "\n" + i;
+                    cadena = cadena + "\n" + i+"\n";
                 }
             }
             JOptionPane.showMessageDialog(null, "Personas No Vacunadas\n" + cadena, "Lista Personas No Vacunadas", 1);
